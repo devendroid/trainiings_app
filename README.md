@@ -63,4 +63,5 @@ lib/
 * **carousel_slider**: A Flutter widget to create highly customizable and responsive carousels or sliders.
 * **modal_bottom_sheet**: A Flutter package to create customizable modal bottom sheets with advanced features like scrollable content.
 
-
+## Preview:
+![prev](https://github.com/devendroid/trainings_app/blob/main/media/prev.gif)
