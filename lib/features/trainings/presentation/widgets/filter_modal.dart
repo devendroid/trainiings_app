@@ -7,8 +7,7 @@ import '../bloc/training_cubit.dart';
 class FilterModal extends StatefulWidget {
   final List<String> trainers;
 
-  const FilterModal(
-      {super.key, required this.trainers});
+  const FilterModal({super.key, required this.trainers});
 
   @override
   State<StatefulWidget> createState() => FilterModalState();
@@ -31,7 +30,6 @@ class FilterModalState extends State<FilterModal> {
   @override
   Widget build(BuildContext buildContext) {
     return DraggableScrollableSheet(
-      
       expand: false,
       initialChildSize: 0.6,
       minChildSize: 0.4,
@@ -46,13 +44,16 @@ class FilterModalState extends State<FilterModal> {
                 child: Row(
                   children: [
                     Text("Sort and Filters",
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold
-                        )),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.copyWith(fontWeight: FontWeight.bold)),
                     const Spacer(),
                     IconButton(
-                      icon:  Icon(Icons.clear, color:
-                      Theme.of(context).secondaryTextColor,),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Theme.of(context).secondaryTextColor,
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -82,7 +83,8 @@ class FilterModalState extends State<FilterModal> {
                     ),
                     Expanded(
                       flex: 3,
-                      child: _filterOptionsWidget(_selectedIndex, buildContext, scrollController),
+                      child: _filterOptionsWidget(
+                          _selectedIndex, buildContext, scrollController),
                     )
                   ],
                 ),
@@ -120,110 +122,81 @@ class FilterModalState extends State<FilterModal> {
     );
   }
 
-  Widget _filterOptionsWidget(int index, BuildContext buildContext, ScrollController scrollController) {
+  Widget _filterOptionsWidget(
+      int index, BuildContext buildContext, ScrollController scrollController) {
+    switch (index) {
+      case 0:
+        {
+          return ListView.builder(
+              controller: scrollController,
+              itemCount: buildContext.read<TrainingCubit>().locations.length,
+              itemBuilder: (context, index) {
+                final locationMap =
+                    buildContext.read<TrainingCubit>().locations[index];
+                return CheckboxListTile(
+                  checkColor: Colors.white,
+                  activeColor: Theme.of(buildContext).primaryColor,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  title: Text(locationMap.keys.first),
+                  value: locationMap.values.first,
+                  onChanged: (value) {
+                    setState(() {
+                      buildContext.read<TrainingCubit>().locations[index]
+                          [locationMap.keys.first] = value == true;
+                    });
+                  },
+                );
+              });
+        }
 
-    switch(index) {
-      case  0 : {
-        return ListView.builder(
-            controller: scrollController,
-            itemCount: buildContext
-                .read<TrainingCubit>()
-                .locations
-                .length,
-            itemBuilder: (context, index) {
-              final locationMap = buildContext
-                  .read<TrainingCubit>()
-                  .locations[index];
-              return CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                title: Text(locationMap.keys.first),
-                value: locationMap.values.first,
-                onChanged: (value) {
-                  setState(() {
-                    buildContext
-                        .read<TrainingCubit>()
-                        .locations[index]
-                    [locationMap.keys.first] = value == true;
-                  });
-                },
-              );
-            });
-       }
+      case 1:
+        {
+          return ListView.builder(
+              controller: scrollController,
+              itemCount: buildContext.read<TrainingCubit>().trainings.length,
+              itemBuilder: (context, index) {
+                final trainingMap =
+                    buildContext.read<TrainingCubit>().trainings[index];
+                return CheckboxListTile(
+                  checkColor: Colors.white,
+                  activeColor: Theme.of(buildContext).primaryColor,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  title: Text(trainingMap.keys.first),
+                  value: trainingMap.values.first,
+                  onChanged: (value) {
+                    setState(() {
+                      buildContext.read<TrainingCubit>().trainings[index]
+                          [trainingMap.keys.first] = value == true;
+                    });
+                  },
+                );
+              });
+        }
 
-      case 1: {
-        return ListView.builder(
-            controller: scrollController,
-            itemCount: buildContext
-                .read<TrainingCubit>()
-                .trainings
-                .length,
-            itemBuilder: (context, index) {
-              final trainingMap = buildContext
-                  .read<TrainingCubit>()
-                  .trainings[index];
-              return CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                title: Text(trainingMap.keys.first),
-                value: trainingMap.values.first,
-                onChanged: (value) {
-                  setState(() {
-                    buildContext
-                        .read<TrainingCubit>()
-                        .trainings[index]
-                    [trainingMap.keys.first] = value == true;
-                  });
-                },
-              );
-            });
-      }
-
-      case 2: {
-        return ListView.builder(
-            controller: scrollController,
-            itemCount: buildContext
-                .read<TrainingCubit>()
-                .trainers
-                .length,
-            itemBuilder: (context, index) {
-              final trainerMap = buildContext
-                  .read<TrainingCubit>()
-                  .trainers[index];
-              return CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                title: Text(trainerMap.keys.first),
-                value: trainerMap.values.first,
-                onChanged: (value) {
-                  setState(() {
-                    buildContext
-                        .read<TrainingCubit>()
-                        .trainers[index]
-                    [trainerMap.keys.first] = value == true;
-                  });
-                },
-              );
-            });
-      }
+      case 2:
+        {
+          return ListView.builder(
+              controller: scrollController,
+              itemCount: buildContext.read<TrainingCubit>().trainers.length,
+              itemBuilder: (context, index) {
+                final trainerMap =
+                    buildContext.read<TrainingCubit>().trainers[index];
+                return CheckboxListTile(
+                  checkColor: Colors.white,
+                  activeColor: Theme.of(buildContext).primaryColor,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  title: Text(trainerMap.keys.first),
+                  value: trainerMap.values.first,
+                  onChanged: (value) {
+                    setState(() {
+                      buildContext.read<TrainingCubit>().trainers[index]
+                          [trainerMap.keys.first] = value == true;
+                    });
+                  },
+                );
+              });
+        }
     }
     return const SizedBox.shrink();
   }
-
 }
-
-// const Text("Location"),
-// ...List.generate(
-// widget.locations.length,
-// (index) => CheckboxListTile(
-// controlAffinity: ListTileControlAffinity.leading,
-// title: Text(widget.locations[index]),
-// value: false,
-// onChanged: (value) {},
-// )),
-// const Text("Trainer"),
-// ...List.generate(
-// widget.trainers.length,
-// (index) => CheckboxListTile(
-// controlAffinity: ListTileControlAffinity.leading,
-// title: Text(widget.trainers[index]),
-// value: false,
-// onChanged: (value) {},
-// )),

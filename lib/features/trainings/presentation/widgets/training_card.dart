@@ -52,23 +52,22 @@ class TrainingCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: Theme.of(context).primaryTextColor,
                           fontSize: 20,
-                          fontWeight: FontWeight.bold
-                      ),
+                          fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       time,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).secondaryTextColor,
-                      ),
+                            color: Theme.of(context).secondaryTextColor,
+                          ),
                     ),
                     const Spacer(),
                     Text(
                       maxLines: 3,
                       location,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: Theme.of(context).primaryTextColor,  fontWeight: FontWeight.bold
-                      ),
+                          color: Theme.of(context).primaryTextColor,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -77,10 +76,8 @@ class TrainingCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: CustomPaint(
                     size: const Size(1, double.infinity),
-                    painter: VerticalDashedLine()
-                ),
+                    painter: VerticalDashedLine()),
               ),
-
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,9 +87,12 @@ class TrainingCard extends StatelessWidget {
                         if (status.isNotEmpty)
                           Text(
                             status,
-                            style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                color: Colors.red, fontWeight: FontWeight.bold
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium
+                                ?.copyWith(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold),
                           ),
                       ],
                     ),
@@ -104,8 +104,7 @@ class TrainingCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: Theme.of(context).primaryTextColor,
                           fontSize: 18,
-                          fontWeight: FontWeight.bold
-                      ),
+                          fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Row(
@@ -123,15 +122,22 @@ class TrainingCard extends StatelessWidget {
                               Text(
                                 'Keynote Speaker',
                                 maxLines: 1,
-                                style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                  color: Theme.of(context).primaryTextColor,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelSmall
+                                    ?.copyWith(
+                                      color: Theme.of(context).primaryTextColor,
+                                    ),
                               ),
                               Text(
                                 speakerName,
-                                style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                  color: Theme.of(context).secondaryTextColor,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelSmall
+                                    ?.copyWith(
+                                      color:
+                                          Theme.of(context).secondaryTextColor,
+                                    ),
                               ),
                             ],
                           ),
@@ -147,10 +153,12 @@ class TrainingCard extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Theme.of(context).primaryColor,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2)),
                           ),
                           onPressed: onEnroll,
-                          child: const Text('Enrol Now', style: TextStyle(color: Colors.white)),
+                          child: const Text('Enrol Now',
+                              style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ),

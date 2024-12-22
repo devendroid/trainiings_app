@@ -2,14 +2,13 @@ import 'package:my_trainings_app/features/trainings/domain/repository/training_r
 import '../../../../core/di/dependencies.dart';
 
 class GetFilteredList {
-
   Future<List<Map<String, String>>> call(List<String> selectedLocations,
       List<String> selectedTrainings, List<String> selectedTrainers) async {
     final trainingList = await getIt<TrainingRepository>().getTrainings();
 
     // Filtering logic
-    List<Map<String, String>> filteredTrainings = trainingList.where((
-        training) {
+    List<Map<String, String>> filteredTrainings =
+        trainingList.where((training) {
       // Check if the location matches any of the selected locations
       bool matchesLocation = selectedLocations == null ||
           selectedLocations.isEmpty ||
@@ -30,5 +29,4 @@ class GetFilteredList {
 
     return filteredTrainings;
   }
-
 }

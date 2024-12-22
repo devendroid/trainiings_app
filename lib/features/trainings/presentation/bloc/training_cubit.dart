@@ -5,25 +5,15 @@ import '../../../shared/modal/api_resp_state.dart';
 import '../../domain/usecase/training_usecase.dart';
 
 class TrainingCubit extends Cubit<ResponseState> {
-  TrainingCubit() : super(ResponseStateInitial());
+  late List<Map<String, bool>> locations;
+  late List<Map<String, bool>> trainings;
+  late List<Map<String, bool>> trainers;
 
-  List<Map<String, bool>> locations = <Map<String, bool>>[
-    {'West Des Moines': false},
-    {"Chicago, IL": false},
-    {"Phoenix, AZ": false}
-  ];
-
-  List<Map<String, bool>> trainings = <Map<String, bool>>[
-    {'Safe Scrum Master': false},
-    {"Agile Project Management": false},
-    {"Advanced Kanban Training": false}
-  ];
-
-  List<Map<String, bool>> trainers = <Map<String, bool>>[
-    {'Helen Gribble': false},
-    {"John Doe": false},
-    {"Sarah Smith": false}
-  ];
+  TrainingCubit() : super(ResponseStateInitial()) {
+    locations = locationsMock;
+    trainings = trainingsMock;
+    trainers = trainersMock;
+  }
 
   Future<void> getHighlights() async {
     emit(ResponseStateLoading());
@@ -78,7 +68,5 @@ class TrainingCubit extends Cubit<ResponseState> {
         selectedLocations, selectedTrainings, selectedTrainers);
 
     emit(ResponseStateSuccess(trainingList));
-
-    print("===filteredTrainings  $trainingList");
   }
 }

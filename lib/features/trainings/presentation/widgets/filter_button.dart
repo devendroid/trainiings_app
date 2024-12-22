@@ -18,14 +18,13 @@ class FilterButton extends StatelessWidget {
         showModalBottomSheet(
             context: context,
             isScrollControlled: true,
-            builder: (_) =>
-                BlocProvider.value(
+            builder: (_) => BlocProvider.value(
                   value: context.read<TrainingCubit>(),
                   child: FilterModal(
-                    trainers: trainings.map((t) => t['trainer']!).toSet().toList(),
+                    trainers:
+                        trainings.map((t) => t['trainer']!).toSet().toList(),
                   ),
-                )
-        ).whenComplete((){
+                )).whenComplete(() {
           context.read<TrainingCubit>().filterList();
         });
       },
@@ -43,7 +42,9 @@ class FilterButton extends StatelessWidget {
               color: Theme.of(context).secondaryTextColor,
               size: 14,
             ),
-            const SizedBox(width: 4,),
+            const SizedBox(
+              width: 4,
+            ),
             Text(
               "Filter",
               style: TextStyle(

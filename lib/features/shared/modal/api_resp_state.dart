@@ -8,11 +8,14 @@ abstract class ResponseState<T> extends Equatable {
 }
 
 class ResponseStateInitial extends ResponseState {}
+
 class ResponseStateLoading extends ResponseState {}
+
 class ResponseStateCancel extends ResponseState {}
 
 class ResponseStateEmpty extends ResponseState {
   final String message;
+
   const ResponseStateEmpty(this.message);
 
   @override
@@ -45,6 +48,7 @@ class ResponseStateError extends ResponseState {
 
 class ResponseStateNoInternet extends ResponseState {
   final String message;
+
   const ResponseStateNoInternet(this.message);
 
   @override

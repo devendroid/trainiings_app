@@ -18,16 +18,17 @@ class TrainingList extends StatelessWidget {
           final training = trainings[index];
 
           return TrainingCard(
-            date: training["date"]??"",
-            time: training["time"]??"",
-            location: training["location"]??"",
+            date: training["date"] ?? "",
+            time: training["time"] ?? "",
+            location: training["location"] ?? "",
             status: 'Filling Fast!',
-            title: training["title"]??"",
+            title: training["title"] ?? "",
             rating: 4.6,
-            speakerName: training["trainer"]??"",
-            speakerImage: training["image"]??"",
+            speakerName: training["trainer"] ?? "",
+            speakerImage: training["image"] ?? "",
             onEnroll: () {
-              Navigator.pushNamed(context, RouteName.trainingDetail, arguments: training);
+              Navigator.pushNamed(context, RouteName.trainingDetail,
+                  arguments: training);
             },
           );
         },

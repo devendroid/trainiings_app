@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
-
   static ThemeData lightTheme = ThemeData(
     primaryColor: const Color(0xFFFF004E),
     primarySwatch: Colors.pink,
@@ -11,5 +10,6 @@ abstract class AppTheme {
 
 extension CustomTheme on ThemeData {
   Color get primaryTextColor => Colors.black87;
+
   Color get secondaryTextColor => Colors.black45;
 }

@@ -4,7 +4,6 @@ import 'package:my_trainings_app/features/trainings/domain/usecase/training_usec
 import '../../features/trainings/data/repository/training_repository_impl.dart';
 import '../../features/trainings/domain/repository/training_repository.dart';
 
-
 final getIt = GetIt.instance;
 
 void configureDependencies() {

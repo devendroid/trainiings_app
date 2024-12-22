@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TrainingDetailScreen extends StatelessWidget {
-
   final Map<String, String> training;
 
   const TrainingDetailScreen(this.training);
@@ -17,7 +16,8 @@ class TrainingDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(training['cover_image']!, height: 200, fit: BoxFit.cover),
+            Image.network(training['cover_image']!,
+                height: 200, fit: BoxFit.cover),
             SizedBox(height: 16),
             Text(
               training['title']!,

@@ -17,19 +17,13 @@ class HomeScreen extends StatelessWidget {
       create: (_) => TrainingCubit()..getTrainings(),
       child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Theme
-                .of(context)
-                .primaryColor,
+            backgroundColor: Theme.of(context).primaryColor,
             title: Text(
               'Trainings',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headlineLarge
-                  ?.copyWith(color: Colors.white,
+              style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                  color: Colors.white,
                   fontFamily: FontFamily.accolade,
-                  letterSpacing: 1.8
-              ),
+                  letterSpacing: 1.8),
             ),
             actions: const [
               IconButton(
@@ -46,9 +40,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 180,
-                color: Theme
-                    .of(context)
-                    .primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,50 +49,41 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       "Highlights",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(color: Colors.white,),
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: Colors.white,
+                          ),
                     ),
                   ),
                   HighlightCarousel(),
-
                   BlocBuilder<TrainingCubit, ResponseState>(
                       builder: (context, state) {
-                        if (state is ResponseStateLoading) {
-                          // Show loading or shimmer effects
-                        }
-                        else if (state is ResponseStateError) {
-                          // Handle Error
-                        }
-                        else if (state is ResponseStateNoInternet) {
-                          // Handle Offline conditions
-                        }
-                        else if (state is ResponseStateSuccess) {
-                          var trainings =
-                          state.data as List<Map<String, String>>;
-                          return Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: FilterButton(trainings),
-                                ),
-                                Expanded(
-                                    child: TrainingList(trainings: trainings)),
-                              ],
+                    if (state is ResponseStateLoading) {
+                      // Show loading or shimmer effects
+                    } else if (state is ResponseStateError) {
+                      // Handle Error
+                    } else if (state is ResponseStateNoInternet) {
+                      // Handle Offline conditions
+                    } else if (state is ResponseStateSuccess) {
+                      var trainings = state.data as List<Map<String, String>>;
+                      return Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: FilterButton(trainings),
                             ),
-                          );
-                        }
-                        return const SizedBox.shrink();
-                      })
+                            Expanded(child: TrainingList(trainings: trainings)),
+                          ],
+                        ),
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  })
                 ],
               ),
             ],
-          )
-      ),
+          )),
     );
   }
 }

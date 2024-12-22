@@ -12,7 +12,8 @@ class AppRouter {
 
       case RouteName.trainingDetail:
         final training = settings.arguments as Map<String, String>;
-        return MaterialPageRoute(builder: (_) => TrainingDetailScreen(training));
+        return MaterialPageRoute(
+            builder: (_) => TrainingDetailScreen(training));
 
       default:
         return MaterialPageRoute(

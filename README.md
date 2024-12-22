@@ -12,8 +12,8 @@ A Flutter project just for demonstration purpose only.
 
 1. Clone the repository:
 ```dart
-  git clone https://github.com/devendroid/training_app.git
-  cd my_trainings_app
+  git clone https://github.com/devendroid/trainings_app.git
+  cd trainings_app
 ```
 
 2. Install dependencies:

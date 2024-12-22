@@ -120,3 +120,42 @@ const mockTrainingsHighlights = [
     'cover_image': 'https://picsum.photos/300/150?random=3',
   },
 ];
+
+List<Map<String, bool>> locationsMock = <Map<String, bool>>[
+  {'West Des Moines': false},
+  {"Chicago, IL": false},
+  {"Dallas, TX": false},
+  {"Phoenix, AZ": false},
+  {"San Diego, CA": false},
+  {"San Francisco, CA": false},
+  {"New York, NY": false},
+  {"Austin, TX": false},
+  {"Los Angeles, CA": false},
+  {"Seattle, WA": false}
+];
+
+List<Map<String, bool>> trainingsMock = <Map<String, bool>>[
+  {'Safe Scrum Master': false},
+  {"Agile Project Management": false},
+  {"Advanced Kanban Training": false},
+  {"Certified Product Owner": false},
+  {"Design Thinking Workshop": false},
+  {"Scrum Master Certification": false},
+  {"Leadership in Agile Teams": false},
+  {"DevOps for Beginners": false},
+  {"Scaled Agile Framework (SAFe)": false},
+  {"Effective Team Collaboration": false}
+];
+
+List<Map<String, bool>> trainersMock = <Map<String, bool>>[
+  {'Helen Gribble': false},
+  {"John Doe": false},
+  {"Sarah Smith": false},
+  {"Emma Brown": false},
+  {"Michael Lee": false},
+  {"Linda Taylor": false},
+  {"David Wilson": false},
+  {"Sophia Johnson": false},
+  {"Chris Martinez": false},
+  {"Olivia Harris": false}
+];
