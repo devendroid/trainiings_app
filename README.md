@@ -12,8 +12,8 @@ A Flutter project just for demonstration purpose only.
 
 1. Clone the repository:
 ```dart
-  git clone https://github.com/devendroid/trainings_app.git
-  cd trainings_app
+  git clone https://github.com/devendroid/trainiings_app.git
+  cd trainiings_app
 ```
 
 2. Install dependencies:
@@ -64,4 +64,4 @@ lib/
 * **modal_bottom_sheet**: A Flutter package to create customizable modal bottom sheets with advanced features like scrollable content.
 
 ## Preview:
-![prev](https://github.com/devendroid/trainings_app/blob/main/media/prev.gif)
+![prev](https://github.com/devendroid/trainiings_app/blob/main/media/prev.gif)
