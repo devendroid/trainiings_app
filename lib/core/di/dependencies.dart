@@ -6,7 +6,11 @@ import '../../features/trainings/domain/repository/training_repository.dart';
 
 final getIt = GetIt.instance;
 
-void configureDependencies() {
-  getIt.registerSingleton<TrainingRepository>(TrainingRepositoryImpl());
-  getIt.registerSingleton<TrainingUseCase>(TrainingUseCase());
+final class ServiceLocator {
+  ServiceLocator._();
+
+  static void configureDependencies() {
+    getIt.registerSingleton<TrainingRepository>(TrainingRepositoryImpl());
+    getIt.registerSingleton<TrainingUseCase>(TrainingUseCase());
+  }
 }
